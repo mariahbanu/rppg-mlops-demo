@@ -29,8 +29,6 @@ This project showcases a **complete MLOps pipeline** from data preparation to pr
 
 **Try it yourself:** [https://huggingface.co/spaces/yourname/rppg-heart-rate-estimator](https://huggingface.co/spaces/yourname/rppg-heart-rate-estimator)
 
-**Video Walkthrough:** [https://www.loom.com/share/your-video-id](https://www.loom.com/share/your-video-id)
-
 ---
 
 ## 🏗️ Architecture
@@ -66,7 +64,7 @@ This project showcases a **complete MLOps pipeline** from data preparation to pr
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rppg-mlops-demo.git
+git clone https://github.com/mariahbanu/rppg-mlops-demo.git
 cd rppg-mlops-demo
 
 # Install dependencies
@@ -116,33 +114,32 @@ make stop
 ## 🛠️ Tech Stack
 
 ### Machine Learning
-- **PyTorch**: Deep learning framework
-- **NumPy/SciPy**: Numerical computing & signal processing
-- **Pandas**: Data manipulation
+- PyTorch (Deep Learning)
+- NumPy/SciPy (Numerical computing & signal processing)
+- Pandas (Data manipulation)
 
 ### MLOps
-- **MLflow**: Experiment tracking & model registry
-- **DVC**: Data version control
-- **Dagster**: Pipeline orchestration
+- MLflow (Experiment Tracking)
+- DVC (Data Versioning)
+- Dagster (Orchestration)
 
 ### API & Serving
-- **FastAPI**: Modern Python web framework
-- **Uvicorn**: ASGI server
-- **Pydantic**: Data validation
+- FastAPI (Modern Python web framework)
+- Uvicorn (ASGI server)
+- Pydantic (Data validation)
 
 ### Monitoring
-- **Prometheus**: Metrics collection
-- **Grafana**: Visualization & dashboards
-- **Evidently**: ML monitoring & drift detection
+- Prometheus + Grafana
+- Evidently (ML monitoring & drift detection)
 
 ### Infrastructure
-- **Docker**: Containerization
-- **Docker Compose**: Local orchestration
-- **Kubernetes**: Production deployment
+- Docker (Containerization)
+- Docker Compose (Local orchestration)
+- Kubernetes (Production deployment)
 
 ### CI/CD
-- **GitHub Actions**: Automated testing & deployment
-- **pytest**: Testing framework
+- CI/CD (GitHub Actions)
+- pytest (Testing framework)
 
 ------
 
@@ -485,10 +482,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-**Your Name**
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
+**Mariah Banu**
+- GitHub: [github.com/mariahbanu](https://github.com/mariahbanu)
+- LinkedIn: [linkedin.com/in/mariah-banu](https://www.linkedin.com/in/mariah-banu/)
+- Email: mariaahbanu@gmail.com
 
 ---
 
