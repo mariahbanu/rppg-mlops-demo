@@ -1,0 +1,93 @@
+services:
+  # MLflow Tracking Server
+  mlflow:
+    image: python:3.9-slim
+    container_name: mlflow-server
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./mlflow:/mlflow
+      - ./data:/data
+      - ./scripts/start_mlflow.sh:/start_mlflow.sh
+    working_dir: /mlflow
+    environment:
+      - BACKEND_STORE_URI=sqlite:///mlflow/mlflow.db
+      - DEFAULT_ARTIFACT_ROOT=/mlflow/artifacts
+    command: bash /start_mlflow.sh
+    networks:
+      - mlops-net
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Model Serving API
+  model-api:
+    build:
+      context: .
+      dockerfile: serving/Dockerfile
+    container_name: model-api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./mlflow:/mlflow
+      - ./data:/data
+      - ./src:/app/src
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - MODEL_PATH=/mlflow/artifacts
+    depends_on:
+      - mlflow
+    networks:
+      - mlops-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    networks:
+      - mlops-net
+
+  # Grafana Dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=http://localhost:3001
+    networks:
+      - mlops-net
+    depends_on:
+      - prometheus
+
+networks:
+  mlops-net:
+    driver: bridge
+
+volumes:
+  prometheus-data:
+  grafana-data:
