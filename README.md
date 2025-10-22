@@ -1,4 +1,4 @@
-# ❤️ rPPG Heart Rate Estimation - MLOps Portfolio Project
+# 💜 rPPG Heart Rate Estimation - MLOps Portfolio Project
 
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -10,28 +10,36 @@ Built for **Presage Technologies** application - demonstrating production-ready 
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 This project showcases a **complete MLOps pipeline** from data preparation to production deployment:
 
-- 📊 **Experiment Tracking**: MLflow for versioning and reproducibility
-- 🔄 **Orchestration**: Dagster for pipeline automation
-- 🐳 **Containerization**: Docker & Docker Compose for consistency
-- ☸️ **Kubernetes-Ready**: Production deployment manifests
-- 📈 **Monitoring**: Prometheus + Grafana for observability
-- 🧪 **Testing**: Comprehensive test suite with pytest
-- 🚀 **CI/CD**: GitHub Actions for automated validation
-- 📦 **Data Versioning**: DVC for dataset management
+- **Experiment Tracking**: MLflow for versioning and reproducibility
+- **Orchestration**: Dagster for pipeline automation
+- **Containerization**: Docker & Docker Compose for consistency
+- **Kubernetes-Ready**: Production deployment manifests
+- **Monitoring**: Prometheus + Grafana for observability
+- **Testing**: Comprehensive test suite with pytest
+- **CI/CD**: GitHub Actions for automated validation
+- **Data Versioning**: DVC for dataset management
 
 ---
 
-## 🌟 Live Demo
+## Live Demo
 
-**Try it yourself:** [https://huggingface.co/spaces/yourname/rppg-heart-rate-estimator](https://huggingface.co/spaces/yourname/rppg-heart-rate-estimator)
+**Try it yourself:** [https://huggingface.co/spaces/mariahbanu/rppg-heart-rate-estimator](https://huggingface.co/spaces/mariahbanu/rppg-heart-rate-estimator)
+
+### Features
+- **Video Upload**: Upload your own facial video for heart rate analysis
+- **Sample Video**: Try with pre-loaded sample video
+- **Real-time Processing**: MediaPipe face detection + FFT signal analysis
+- **Signal Visualization**: Interactive plots of RGB channels
+- 💜 **Dark Mode**: Automatically adapts to system theme
+- **Mobile Friendly**: Responsive design for all devices
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
 │   Data      │────▶│   Training   │────▶│   Model     │
@@ -53,7 +61,7 @@ This project showcases a **complete MLOps pipeline** from data preparation to pr
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -92,30 +100,32 @@ make stop
 
 ### Access Services
 
-- 📊 **MLflow UI**: http://localhost:5000
-- 🤖 **API**: http://localhost:8080
-- 📈 **Prometheus**: http://localhost:9090
-- 📉 **Grafana**: http://localhost:3001 (admin/admin)
+- **MLflow UI**: http://localhost:5000
+- **API**: http://localhost:8080
+- **Prometheus**: http://localhost:9090
+- **Grafana**: http://localhost:3001 (admin/admin)
 
 ---
 
-## 📊 Model Performance
+## Model Performance
 
 | Metric | Value | Threshold | Status |
 |--------|-------|-----------|--------|
-| MAE | 4.2 BPM | < 5.0 BPM | ✅ Pass |
-| RMSE | 5.8 BPM | < 7.0 BPM | ✅ Pass |
-| Correlation | 0.87 | > 0.80 | ✅ Pass |
-| Within 5 BPM | 65% | > 60% | ✅ Pass |
-| Within 10 BPM | 88% | > 85% | ✅ Pass |
+| MAE | 4.2 BPM | < 5.0 BPM | Pass |
+| RMSE | 5.8 BPM | < 7.0 BPM | Pass |
+| Correlation | 0.87 | > 0.80 | Pass |
+| Within 5 BPM | 65% | > 60% | Pass |
+| Within 10 BPM | 88% | > 85% | Pass |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Machine Learning
 - PyTorch (Deep Learning)
 - NumPy/SciPy (Numerical computing & signal processing)
+- MediaPipe (Face detection)
+- OpenCV (Video processing)
 - Pandas (Data manipulation)
 
 ### MLOps
@@ -143,14 +153,14 @@ make stop
 
 ------
 
-## 📁 Project Structure
+## Project Structure
 ```
 rppg-mlops-demo/
 ├── src/                           # Source code
 │   ├── models/
 │   │   └── rppg_net.py           # Model architecture
 │   ├── preprocessing/
-│   │   └── signal_processor.py   # Signal processing
+│   │   └── video_processor.py    # Video processing & face detection
 │   ├── training/
 │   │   └── train.py              # Training logic
 │   └── utils/
@@ -191,13 +201,13 @@ rppg-mlops-demo/
 ├── docker-compose.yml             # Service orchestration
 ├── Makefile                       # Convenience commands
 ├── requirements.txt               # Python dependencies
-├── demo_app.py                    # Streamlit demo
+├── app.py                         # Streamlit demo (video upload + analysis)
 └── README.md                      # This file
 ```
 
 ---
 
-## 🚀 Usage Guide
+## Usage Guide
 
 ### Training a Model
 ```bash
@@ -253,7 +263,7 @@ pytest tests/ --cov=src --cov-report=html
 
 ---
 
-## 📈 Monitoring & Observability
+## Monitoring & Observability
 
 ### Metrics Available
 
@@ -282,7 +292,7 @@ pytest tests/ --cov=src --cov-report=html
 
 ---
 
-## 🧪 Testing Strategy
+## Testing Strategy
 
 ### Unit Tests
 ```bash
@@ -309,7 +319,7 @@ pytest tests/test_api.py -v
 
 ---
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
 The project includes a GitHub Actions workflow that automatically:
 
@@ -336,15 +346,15 @@ The project includes a GitHub Actions workflow that automatically:
 
 ---
 
-## 📝 Model Card
+## Model Card
 
 ### Model Details
 - **Name**: rPPG Heart Rate Estimator
 - **Version**: 1.0
 - **Architecture**: CNN-LSTM Hybrid
 - **Framework**: PyTorch 2.0.1
-- **Parameters**: ~125,000 (trainable)
-- **Input**: RGB signal (900 frames × 3 channels)
+- **Parameters**: ~49,000 (trainable)
+- **Input**: RGB signal (900 frames × 3 channels) or video file
 - **Output**: Heart rate (BPM)
 
 ### Intended Use
@@ -379,39 +389,39 @@ The project includes a GitHub Actions workflow that automatically:
 
 ---
 
-## 🎯 MLOps Best Practices Demonstrated
+## MLOps Best Practices Demonstrated
 
-✅ **Reproducibility**
+**Reproducibility**
 - Fixed random seeds
 - Version-controlled data (DVC)
 - Dockerized environments
 - Pinned dependencies
 
-✅ **Experiment Tracking**
+**Experiment Tracking**
 - All runs logged to MLflow
 - Parameters, metrics, and artifacts tracked
 - Model lineage maintained
 - Easy comparison between experiments
 
-✅ **Code Quality**
+**Code Quality**
 - Type hints throughout
 - Comprehensive docstrings
 - Unit test coverage >80%
 - Automated linting
 
-✅ **Model Validation**
+**Model Validation**
 - Automated quality gates
 - Performance thresholds enforced
 - Regression testing
 - Model card documentation
 
-✅ **Monitoring**
+**Monitoring**
 - Real-time metrics collection
 - Drift detection ready
 - Alerting configuration
 - Performance dashboards
 
-✅ **Deployment**
+**Deployment**
 - Containerized serving
 - Health checks implemented
 - Auto-scaling ready
@@ -419,9 +429,9 @@ The project includes a GitHub Actions workflow that automatically:
 
 ---
 
-## 🚧 Roadmap
+## Roadmap
 
-### Completed ✅
+### Completed
 - [x] Model development & training
 - [x] MLflow integration
 - [x] FastAPI serving
@@ -432,7 +442,7 @@ The project includes a GitHub Actions workflow that automatically:
 - [x] Hugging Face deployment
 - [x] Documentation
 
-### Future Enhancements 🔮
+### Future Enhancements
 - [ ] Real UBFC-rPPG dataset integration
 - [ ] Advanced drift detection
 - [ ] A/B testing framework
@@ -444,7 +454,7 @@ The project includes a GitHub Actions workflow that automatically:
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - [Architecture Overview](docs/architecture.md)
 - [API Documentation](http://localhost:8080/docs) (when running)
@@ -454,7 +464,7 @@ The project includes a GitHub Actions workflow that automatically:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -466,13 +476,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Presage Technologies** - Inspiration for this project
 - **UBFC-rPPG Dataset** - Reference dataset for rPPG research
@@ -480,7 +490,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📬 Contact
+## Contact
 
 **Mariah Banu**
 - GitHub: [github.com/mariahbanu](https://github.com/mariahbanu)
@@ -489,13 +499,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🌟 Star History
+## Star History
 
-If you found this project helpful, please consider giving it a star! ⭐
+If you found this project helpful, please consider giving it a star!
 
 ---
 
-## 📊 Project Status
+## Project Status
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
@@ -507,6 +517,6 @@ If you found this project helpful, please consider giving it a star! ⭐
 ---
 
 <div align="center">
-  <p>Built with ❤️ for Presage Technologies Application</p>
+  <p>Built with 💜 for Presage Technologies Application</p>
   <p>Demonstrating Production-Ready MLOps Infrastructure</p>
 </div>

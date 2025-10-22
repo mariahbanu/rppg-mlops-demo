@@ -161,7 +161,7 @@ async def predict(request: PredictionRequest):
         processing_time = (time.time() - start_time) * 1000  # Convert to ms
         
         return PredictionResponse(
-            heart_rate_bpm=round(heart_rate, 1),
+            heart_rate_bpm=round(heart_rate),
             confidence=0.85,  # Placeholder - implement proper uncertainty quantification
             model_version="1.0",
             processing_time_ms=round(processing_time, 2)

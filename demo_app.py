@@ -256,13 +256,13 @@ with tab1:
                     # Large metric display
                     st.metric(
                         label="Estimated Heart Rate",
-                        value=f"{predicted_hr:.1f} BPM",
-                        delta=f"{predicted_hr - st.session_state.get('target_hr', predicted_hr):.1f} BPM" if st.session_state.get('target_hr') else None
+                        value=f"{round(predicted_hr)} BPM",
+                        delta=f"{round(predicted_hr - st.session_state.get('target_hr', predicted_hr))} BPM" if st.session_state.get('target_hr') else None
                     )
                     
                     if st.session_state.get('target_hr'):
                         error = abs(predicted_hr - st.session_state['target_hr'])
-                        st.info(f"📊 Absolute Error: {error:.1f} BPM")
+                        st.info(f"📊 Absolute Error: {round(error)} BPM")
                         
                         if error <= 5:
                             st.success("✅ Excellent prediction (within 5 BPM)!")
